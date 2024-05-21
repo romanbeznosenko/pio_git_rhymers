@@ -5,10 +5,12 @@ public class DefaultCountingOutRhymer {
     private static final int NUMBERS_SIZE = 12;
 
 	private static final int ERROR_CODE = -1;
+	
+	private static final int EMPTY_RHYMER_INDICATOR = -1;
 
 	private int[] numbers = new int[NUMBERS_SIZE];
 
-    public int total = ERROR_CODE;
+    public int total = EMPTY_RHYMER_INDICATOR;
 
     public void countIn(int in) {
         if (!isFull())
@@ -16,11 +18,11 @@ public class DefaultCountingOutRhymer {
     }
 
     public boolean callCheck() {
-        return total == ERROR_CODE;
+        return total == EMPTY_RHYMER_INDICATOR;
     }
 
     public boolean isFull() {
-        return total == 11;
+        return total == NUMBERS_SIZE-1;
     }
 
     protected int peekaboo() {
